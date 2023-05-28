@@ -13,6 +13,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { UsersModule } from './users/users.module';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './guards/auth.guard';
+import { env } from 'process';
 
 @Module({
   imports: [
@@ -22,12 +23,12 @@ import { AuthGuard } from './guards/auth.guard';
     UsersModule,
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'administrator',
-      database: 'diplom',
+      type: <'mysql' | 'postgres'>env.DB_TYPE,
+      host: env.DB_HOST,
+      port: +env.DB_PORT,
+      username: env.DB_USERNAME,
+      password: env.DB_PASSWORD,
+      database: env.DB_DATABASE,
       entities: [CatalogEntity, OrderEntity, UserEntity],
       synchronize: true,
     })
@@ -42,5 +43,7 @@ import { AuthGuard } from './guards/auth.guard';
 })
 export class AppModule {
 
-  constructor(private dataSource: DataSource) {}
+  constructor(private dataSource: DataSource) {
+    console.log()
+  }
 }
