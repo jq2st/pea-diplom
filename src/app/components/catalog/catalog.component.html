@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="filters card-outlined">
+        <h2>Фильтры</h2>
+        <div class="filters-inputs">
+            <div class="filters-inputs__control">
+                Марка автомобиля
+                <input type="text" [(ngModel)]="brandFilter" (input)="loadCatalog()">
+            </div>
+            <div class="filters-inputs__control">
+                Модель автомобиля
+                <input type="text"[(ngModel)]="modelFilter" (input)="loadCatalog()">
+            </div>
+        </div>
+    </div>
+
+    <ng-container *ngIf="!isLoading; else loaderRef">
+        <ng-container *ngIf="cards.length > 0; else noCarsRef">
+            <div class="catalog">
+                <app-card *ngFor="let item of cards" [card]="item"></app-card>
+            </div>
+        </ng-container>
+    </ng-container>
+    <ng-template #noCarsRef>
+        <div class="loader">Ничего не найдено</div>
+    </ng-template>
+    <ng-template #loaderRef>
+        <div class="loader">Загрузка...</div>
+    </ng-template>
+</div>

@@ -1,0 +1,23 @@
+<div class="header">
+    <div class="menu">
+        <div class="menu-side">
+            <!-- <div class="box logo" [routerLink]="'catalog'"></div> -->
+            <div class="logo-text">Cheap Cars</div>
+        </div>
+        <div class="menu-side">
+            <div class="box" [routerLink]="'catalog'" routerLinkActive="box_active">Каталог</div>
+            <div class="box" [routerLink]="'service'" routerLinkActive="box_active">Об услуге</div>
+            <div class="box" [routerLink]="'contacts'" routerLinkActive="box_active">Контакты</div>
+            <div class="user">
+                <ng-container *ngIf="(user$ | async) as user; else loginButtonRef">
+                    <button class="box box_basic" [routerLink]="'account'" routerLinkActive="box_active">Личный Кабинет</button>
+                </ng-container>
+                <ng-template #loginButtonRef>
+                    <button [routerLink]="'auth'">Войти</button>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="reshenie-problemi">
+</div>

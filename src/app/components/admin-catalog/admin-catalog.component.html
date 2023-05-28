@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="page">
+        <h2>Каталог</h2>
+        <div class="main">
+            <div class="add card-outlined">
+                <div class="more" (click)="showForm = !showForm">
+                    <h3>Новый автомобиль</h3>
+                    <div class="icon">{{ showForm ? '-' : '+'}}</div>
+                </div>
+                <ng-container *ngIf="showForm">
+                    <form class="form" id="add" [formGroup]="form" (submit)="onAddSubmit()">
+                        <div class="form-item">
+                            <div class="form-item__label">Бренд</div>
+                            <input type="text" formControlName="brand" placeholder="Введите название бренда">
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item__label">Модель</div>
+                            <input type="text" formControlName="model" placeholder="Введите название модели">
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item__label">Класс</div>
+                            <input type="text" formControlName="class" placeholder="Введите класс">
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item__label">Страна</div>
+                            <input type="text" formControlName="country" placeholder="Введите страну-производитель">
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item__label">Типы кузова</div>
+                            <input type="text" formControlName="shape" placeholder="Введите доступные типы кузова">
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item__label">Годы выпуска</div>
+                            <input type="text" formControlName="year" placeholder="Введите годы выпуска">
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item__label">Масса</div>
+                            <input type="text" formControlName="mass" placeholder="Введите вариации масс">
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item__label">Тип топлива</div>
+                            <input type="text" formControlName="fuel" placeholder="Введите доступные вариации топлива">
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item__label">Изображение</div>
+                            <input type="text" formControlName="image" placeholder="Введите ссылку на изображение">
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item__label">Цена</div>
+                            <input type="number" formControlName="price" placeholder="Введите цену">
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item__label">Описание</div>
+                            <input type="text" formControlName="info" placeholder="Введите описание">
+                        </div>
+                    </form>
+                    <button form="add" type="submit" class="button" [disabled]="form.invalid || form.disabled" [ngClass]="{'disabled': (form.invalid || form.disabled)}">Добавить</button>    
+                </ng-container>
+            </div>
+            <div class="list card-outlined">
+                <h3>Список автомобилей</h3>
+
+                <ng-container *ngIf="list.length > 0; else noItems">
+                    <div class="table">
+                        <div class="table__line table__header">
+                            <div class="table__cell">Бренд</div>
+                            <div class="table__cell">Модель</div>
+                            <div class="table__cell">Класс</div>
+                            <div class="table__cell">Топливо</div>
+                            <div class="table__cell">Цена</div>
+                            <div class="table__cell">Изображение</div>
+                            <div class="table__cell"></div>
+                        </div>
+                        <ng-container *ngFor="let item of list">
+                            <div class="table__line table__value">
+                                <div class="table__cell"><span>{{ item.brand }}</span></div>
+                                <div class="table__cell"><span>{{ item.model }}</span></div>
+                                <div class="table__cell"><span>{{ item.class }}</span></div>
+                                <div class="table__cell"><span>{{ item.fuel }}</span></div>
+                                <div class="table__cell"><span>{{ item.price }}</span></div>
+                                <div class="table__cell">
+                                    <div class="item-image" [ngStyle]="{'background-image': 'url(' + item.image + ')'}"></div>
+                                </div>
+                                <div class="table__cell"><span class="action_warning" (click)="remove(item.id)">Удалить</span></div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </ng-container>
+
+                <ng-template #noItems>
+                    <span class="no-items">Список автомобилей пуст</span>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>

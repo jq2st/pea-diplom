@@ -1,0 +1,49 @@
+.card {
+    width: 100%;
+    box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
+    position: relative;
+    margin-top: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    padding: 15px 30px;
+}
+.card-info-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.card-line-key {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.card-line-value {
+    border: 1px solid black;
+    padding: 8px 80px;
+    border-radius: 10px;
+}
+input {
+    height: 30px;
+    width: 500px;
+    padding-left: 15px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+} 
+.card-actions {
+    justify-content: flex-end;
+    display: flex;
+    margin-top: 25px;
+    button {
+        &.disabled {
+            cursor: default;
+            background-color: #c3c3c3;
+            &:hover {
+                box-shadow: none;
+            }
+        }
+    }
+}
+.car-info {
+    font-weight: 600;
+}

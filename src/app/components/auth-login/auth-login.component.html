@@ -1,0 +1,10 @@
+
+<h2>Вход</h2>
+<form id="login" [formGroup]="form" (submit)="login()">
+    <input type="text" placeholder="Логин" formControlName="login">
+    <input type="password" placeholder="Пароль" formControlName="password">
+    <button form="login" type="submit" [disabled]="form.invalid || isDisabled" [ngClass]="{'disabled': (form.invalid || isDisabled)}">Войти</button>
+    <div class="errors">
+        <span *ngIf="isError">*Неверные данные пользователя</span>
+    </div>
+</form>

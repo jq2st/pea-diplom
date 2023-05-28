@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-picture" [ngStyle]="{'background-image': 'url(' + car.image + ')'}"></div>
+    <div class="card-info">
+        <div class="card-info-line">
+            <div class="card-line-key">Марка</div>
+            <div class="card-line-value">{{car.brand}}</div>
+        </div>
+        <div class="card-info-line">
+            <div class="card-line-key">Модель</div>
+            <div class="card-line-value">{{car.model}}</div>
+        </div>
+        <div class="card-info-line">
+            <div class="card-line-key">Цена</div>
+            <div class="card-line-value">{{'от ' + (car.price | currency : '₽' : 'symbol')}}</div>
+        </div>
+        <button [routerLink]="'/catalog/' + car.id">Подробнее</button>
+    </div>
+</div>

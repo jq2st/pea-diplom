@@ -1,0 +1,9 @@
+<div class="page">
+    <div class="container links">
+        <div class="links__tab" [routerLink]="'login'" [routerLinkActive]="'links__tab_active'">Вход</div>
+        <div class="links__tab" [routerLink]="'registration'" [routerLinkActive]="'links__tab_active'">Регистрация</div>
+    </div>
+    <div class="container card-outlined card_top">
+        <router-outlet></router-outlet>
+    </div>
+</div>

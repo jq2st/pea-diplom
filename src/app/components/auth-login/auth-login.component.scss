@@ -1,0 +1,33 @@
+:host {
+    padding: 30px 0;
+    form {
+        display: flex;
+        flex-direction: column;
+        input {
+            margin-top: 15px;
+            height: 30px;
+            width: 300px;
+            padding: 8px;
+            border-radius: 8px;
+        }
+        button {
+            margin-top: 20px;
+            width: 300px;
+            &.disabled {
+                cursor: default;
+                background-color: #c3c3c3;
+                &:hover {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+    .errors {
+        height: 50px;
+        span {
+            margin-top: 15px;
+            display: block;
+            color: #f44336;
+        }
+    }
+}

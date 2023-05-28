@@ -1,0 +1,12 @@
+
+<h2>Регистрация</h2>
+<form id="login" [formGroup]="form" (submit)="register()">
+    <input type="text" placeholder="Имя Пользователя" formControlName="name">
+    <input type="text" placeholder="Логин (email)" formControlName="login">
+    <input type="text" placeholder="Телефон" formControlName="phone">
+    <input type="password" placeholder="Пароль" formControlName="password">
+    <button form="login" type="submit" [disabled]="form.invalid || isDisabled" [ngClass]="{'disabled': (form.invalid || isDisabled)}">Зарегистрироваться</button>
+    <div class="errors">
+        <span *ngIf="isError">*Неверные данные пользователя</span>
+    </div>
+</form>

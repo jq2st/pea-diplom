@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="card-outlined">
+        <ng-container *ngIf="user$ | async as user; else noUserRef">
+            <div class="profile-header">
+                <h2>Данные профиля</h2>
+                <button (click)="logout()">Выйти</button>
+            </div>
+            <div class="profile">
+                <div class="profile-line">
+                    <div class="profile-line__key">Имя</div>
+                    <div class="profile-line__value">{{ user.name }}</div>
+                </div>
+                <div class="profile-line">
+                    <div class="profile-line__key">Логин</div>
+                    <div class="profile-line__value">{{ user.login }}</div>
+                </div>
+                <div class="profile-line">
+                    <div class="profile-line__key">Телефон</div>
+                    <div class="profile-line__value">{{ user.phone }}</div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #noUserRef>
+            Необходимо войти в аккаунт.
+        </ng-template>
+    </div>
+</div>

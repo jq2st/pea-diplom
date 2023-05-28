@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="card">
+    <div class="title">
+        <h2>{{title}}</h2>
+        <button [routerLink]="'offer'">Оставить заявку</button>
+    </div>
+    <div class="car-info">
+        <div class="car-info-picture" [ngStyle]="{'background-image': 'url(' + picture + ')'}"></div>
+        <div class="car-info-data">
+            <div class="car-info-data__line">
+                <span>Тип кузова:</span>
+                <span>{{shape}}</span>
+            </div>
+            <div class="car-info-data__line">
+                <span>Тип двигателя:</span>
+                <span>{{fuel}}</span>
+            </div>
+            <div class="car-info-data__line">
+                <span>Годы выпуска:</span>
+                <span>{{year}}</span>
+            </div>
+            <div class="car-info-data__line">
+                <span>Масса:</span>
+                <span>{{mass}}</span>
+            </div>
+            <div class="car-info-data__line">
+                <span>Страна:</span>
+                <span>{{country}}</span>
+            </div>
+            <div class="car-info-data__line">
+                <span>Класс автомобиля:</span>
+                <span>{{class}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="text">{{info}}</div>
+    </div>
+</div>

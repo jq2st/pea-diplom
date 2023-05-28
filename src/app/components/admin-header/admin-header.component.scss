@@ -1,0 +1,39 @@
+.header {
+    height: 50px;
+    background-color: #262626;
+    .container {
+        height: 100%;
+    }
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .title {
+        font-size: 16px;
+        color: white;
+        text-transform: uppercase;
+    }
+    .menu {
+        height: 100%;
+        ul {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            list-style: none;
+            li {
+                margin-right: 20px;
+                padding: 3px 10px;
+                border-radius: 8px;
+                color: white;
+                cursor: pointer;
+                &:hover {
+                    background-color: #aeaeae;
+                }
+                &.active {
+                    background-color: #aeaeae;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="page">
+        <h2>Пользователи</h2>
+        <div class="main">
+            <div class="list card-outlined">
+                <h3>Список пользователей</h3>
+                <ng-container *ngIf="list.length > 0">
+                    <div class="table">
+                        <div class="table__line table__header">
+                            <div class="table__cell">Дата регистрации</div>
+                            <div class="table__cell">Имя</div>
+                            <div class="table__cell">Логин</div>
+                            <div class="table__cell">Телефон</div>
+                            <div class="table__cell">Администратор</div>
+                        </div>
+                        <ng-container *ngFor="let item of list">
+                            <div class="table__line table__value">
+                                <div class="table__cell"><span>{{ item.created_at | date : 'dd.MM.YYYY, hh:mm' }}</span></div>
+                                <div class="table__cell"><span>{{ item.name }}</span></div>
+                                <div class="table__cell"><span>{{ item.login  }}</span></div>
+                                <div class="table__cell"><span>{{ item.phone }}</span></div>
+                                <div class="table__cell"><span>{{ item.isAdmin ? '+' : '' }}</span></div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

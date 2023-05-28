@@ -1,0 +1,19 @@
+.text2 {
+    justify-content: space-between;
+    display: flex;
+    
+}
+.text {
+    line-height: 1.75;
+    box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
+    position: relative;
+    margin-top: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    padding: 20px 30px;
+}
+b {
+    display: block;
+    margin-top: 15px;
+}

@@ -1,0 +1,28 @@
+<div class="container">
+    <form>
+        <div class="card">
+            <div class="car-info">{{title}}</div>
+        </div>
+        <div class="card">
+            <form class="form" [formGroup]="form" (submit)="onSubmit()">
+                <div class="card-info">
+                    <div class="card-info-line">
+                        <div class="card-line-key">ФИО</div>
+                        <input type="text" formControlName="fio" placeholder="Иван Иванович Иванов">
+                    </div>
+                    <div class="card-info-line">
+                        <div class="card-line-key">Телефон</div>
+                        <input type="text" formControlName="phone" placeholder="+7(999) 999-99-99">
+                    </div>
+                    <div class="card-info-line">
+                        <div class="card-line-key">Особые пожелания</div>
+                        <input type="text" formControlName="description" placeholder="Седан, бензин, белый салон">
+                    </div>
+                </div>
+                <div type="submit" class="card-actions">
+                    <button [disabled]="form.invalid || form.disabled" [ngClass]="{'disabled': (form.invalid || form.disabled)}" type="submit">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,20 @@
+.card-outlined {
+    margin-top: 40px;
+}
+.profile {
+    margin-top: 30px;
+    &-line {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &__key {
+            font-size: 17px;
+        }
+    }
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
