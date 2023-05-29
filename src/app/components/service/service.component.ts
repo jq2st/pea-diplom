@@ -14,7 +14,14 @@ export class ServiceComponent {
   constructor(private downloadApi: DownloadApiService) {}
 
   downloadConditions() {
-    const downloadSubscription$ = this.downloadApi.downloadConditions().subscribe()
+    const downloadSubscription$ = this.downloadApi.downloadConditions().subscribe(res => {
+      const url = window.URL.createObjectURL(res)
+      var a = document.createElement('a')
+      a.href = url
+      a.download = 'условия.pdf'
+      a.click()
+      window.URL.revokeObjectURL(url)
+    })
     this._subscriptions$.add(downloadSubscription$)
   }
 

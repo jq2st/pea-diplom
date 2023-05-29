@@ -24,7 +24,7 @@ let DownloadController = class DownloadController {
         const path = (0, path_1.join)('assets', fileName);
         const file = fs.createReadStream(path);
         res.set({
-            'Content-Type': 'application/vnd.android.package-archive',
+            'Content-Type': 'application/pdf',
             'Content-Disposition': `attachment; filename="${fileName}"`,
         });
         return new common_1.StreamableFile(file);
