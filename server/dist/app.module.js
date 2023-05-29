@@ -27,6 +27,7 @@ const auth_guard_1 = require("./guards/auth.guard");
 const serve_static_1 = require("@nestjs/serve-static");
 const process_1 = require("process");
 const path_1 = require("path");
+const download_module_1 = require("./download/download.module");
 let AppModule = class AppModule {
     constructor(dataSource) {
         this.dataSource = dataSource;
@@ -40,6 +41,7 @@ AppModule = __decorate([
             orders_module_1.OrdersModule,
             auth_module_1.AuthModule,
             users_module_1.UsersModule,
+            download_module_1.DownloadModule,
             config_1.ConfigModule.forRoot(),
             serve_static_1.ServeStaticModule.forRoot({
                 rootPath: (0, path_1.join)(__dirname, '..', 'client'),

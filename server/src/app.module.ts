@@ -16,6 +16,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { env } from 'process';
 import { join } from 'path';
+import { DownloadModule } from './download/download.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { join } from 'path';
     OrdersModule,
     AuthModule,
     UsersModule,
+    DownloadModule,
     ConfigModule.forRoot(),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'client'),
