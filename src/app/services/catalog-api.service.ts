@@ -11,7 +11,7 @@ import { PostCatalogRequestDto } from './dto/post-catalog-request.dto';
 })
 export class CatalogApiService {
 
-  api = 'http://localhost:3000/api/catalog'
+  api = '/api/catalog'
 
   constructor(private http: HttpClient) { }
 

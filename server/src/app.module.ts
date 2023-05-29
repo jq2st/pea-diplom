@@ -13,7 +13,9 @@ import { JwtModule } from '@nestjs/jwt';
 import { UsersModule } from './users/users.module';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './guards/auth.guard';
+import { ServeStaticModule } from '@nestjs/serve-static';
 import { env } from 'process';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -22,6 +24,11 @@ import { env } from 'process';
     AuthModule,
     UsersModule,
     ConfigModule.forRoot(),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'client'),
+      serveRoot: "",
+      exclude: ['/api/(.*)'],
+    }),
     TypeOrmModule.forRoot({
       type: <'mysql' | 'postgres'>env.DB_TYPE,
       host: env.DB_HOST,
@@ -44,6 +51,6 @@ import { env } from 'process';
 export class AppModule {
 
   constructor(private dataSource: DataSource) {
-    console.log()
+    console.log(join(__dirname, '..', 'client'))
   }
 }

@@ -9,7 +9,7 @@ import { GetUserResponseDto } from './dto/get-user-response.dto';
 })
 export class UsersApiService {
 
-  private _api = 'http://localhost:3000/api/users'
+  private _api = '/api/users'
 
   constructor(private http: HttpClient) { }
 

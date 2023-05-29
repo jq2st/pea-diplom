@@ -24,11 +24,13 @@ const config_1 = require("@nestjs/config");
 const users_module_1 = require("./users/users.module");
 const core_1 = require("@nestjs/core");
 const auth_guard_1 = require("./guards/auth.guard");
+const serve_static_1 = require("@nestjs/serve-static");
 const process_1 = require("process");
+const path_1 = require("path");
 let AppModule = class AppModule {
     constructor(dataSource) {
         this.dataSource = dataSource;
-        console.log();
+        console.log((0, path_1.join)(__dirname, '..', 'client'));
     }
 };
 AppModule = __decorate([
@@ -39,6 +41,11 @@ AppModule = __decorate([
             auth_module_1.AuthModule,
             users_module_1.UsersModule,
             config_1.ConfigModule.forRoot(),
+            serve_static_1.ServeStaticModule.forRoot({
+                rootPath: (0, path_1.join)(__dirname, '..', 'client'),
+                serveRoot: "",
+                exclude: ['/api/(.*)'],
+            }),
             typeorm_1.TypeOrmModule.forRoot({
                 type: process_1.env.DB_TYPE,
                 host: process_1.env.DB_HOST,

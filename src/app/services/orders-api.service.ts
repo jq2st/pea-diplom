@@ -9,7 +9,7 @@ import { PostOrdersRequestDto } from './dto/post-orders-request.dto';
 })
 export class OrdersApiService {
 
-  api = 'http://localhost:3000/api/orders'
+  api = '/api/orders'
 
   constructor(private http: HttpClient) { }
 

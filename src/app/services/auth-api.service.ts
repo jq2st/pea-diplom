@@ -9,7 +9,7 @@ import { PostAuthRegistrationRequestDto } from './dto/post-auth-registration-req
 })
 export class AuthApiService {
 
-  api = 'http://localhost:3000/api/auth'
+  api = '/api/auth'
 
   constructor(private http: HttpClient) { }
 
