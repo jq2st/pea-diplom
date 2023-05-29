@@ -31,9 +31,6 @@ export class CatalogEntity {
     model: string
 
     @Column()
-    volume: number
-
-    @Column()
     shape: string
 
     @Column()
